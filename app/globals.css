@@ -1,0 +1,363 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #f5f3ef 0%, #e8e4dc 100%);
+  min-height: 100vh;
+  color: #3d3d3d;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(61, 61, 61, 0.1);
+}
+
+.nav h1 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #3d3d3d;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #3d3d3d;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  font-weight: 300;
+}
+
+.nav-button:hover {
+  border-bottom-color: #8b7355;
+}
+
+.nav-button.active {
+  border-bottom-color: #3d3d3d;
+  font-weight: 400;
+}
+
+.timer-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.incense-container {
+  position: relative;
+  width: 200px;
+  height: 400px;
+  margin: 2rem 0;
+}
+
+.incense-stick {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  background: linear-gradient(to top, #8b7355 0%, #c9b8a3 100%);
+  transition: height 0.5s linear;
+  border-radius: 2px 2px 0 0;
+}
+
+.incense-glow {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255, 140, 0, 0.8) 0%, rgba(255, 140, 0, 0) 70%);
+  border-radius: 50%;
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.2);
+  }
+}
+
+.smoke {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(to top, rgba(200, 200, 200, 0.4), transparent);
+  animation: smoke 3s ease-in-out infinite;
+}
+
+@keyframes smoke {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-30px);
+    opacity: 0;
+  }
+}
+
+.timer-display {
+  font-size: 3rem;
+  font-weight: 200;
+  letter-spacing: 0.1em;
+  margin: 2rem 0;
+  color: #3d3d3d;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.button {
+  padding: 0.75rem 2rem;
+  border: 1px solid #3d3d3d;
+  background: transparent;
+  color: #3d3d3d;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+.button:hover {
+  background: #3d3d3d;
+  color: #f5f3ef;
+}
+
+.button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.button:disabled:hover {
+  background: transparent;
+  color: #3d3d3d;
+}
+
+.duration-selector {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0 2rem;
+}
+
+.duration-button {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid rgba(61, 61, 61, 0.3);
+  background: transparent;
+  color: #3d3d3d;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 300;
+}
+
+.duration-button:hover {
+  border-color: #3d3d3d;
+}
+
+.duration-button.active {
+  background: #3d3d3d;
+  color: #f5f3ef;
+  border-color: #3d3d3d;
+}
+
+.dashboard-view {
+  padding: 2rem 0;
+}
+
+.quote-section {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.quote-text {
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: #3d3d3d;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.quote-author {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #8b7355;
+}
+
+.stats-section {
+  margin-bottom: 3rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.stat-card {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 200;
+  color: #3d3d3d;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #8b7355;
+  letter-spacing: 0.05em;
+}
+
+.sessions-section h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  color: #3d3d3d;
+}
+
+.ash-piles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.ash-pile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ash-visual {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.ash-base {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 15px;
+  background: radial-gradient(ellipse at center, #b5a397 0%, #d4c9bf 100%);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.ash-mound {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 20px;
+  background: linear-gradient(to top, #a89787 0%, #d4c9bf 100%);
+  border-radius: 50% 50% 0 0;
+  opacity: 0.8;
+}
+
+.ash-date {
+  font-size: 0.7rem;
+  color: #8b7355;
+  font-weight: 300;
+}
+
+.ash-duration {
+  font-size: 0.6rem;
+  color: #b5a397;
+  font-weight: 300;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #8b7355;
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .timer-display {
+    font-size: 2rem;
+  }
+
+  .incense-container {
+    width: 150px;
+    height: 300px;
+  }
+
+  .controls {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .ash-piles {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 1.5rem;
+  }
+}
